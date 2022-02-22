@@ -7,6 +7,6 @@ set(EXECUTABLE_OUTPUT_PATH ./bin)
 set(CMAKE_CXX_STANDART 17)
 set(CMAKE_CXX_STANDART_REQUIRED ON)
 
-set(SRC main.cpp memory.hpp operations.hpp registers.hpp utils.hpp)
+set(SRC src/main.cpp src/memory.hpp src/registers.hpp src/operations.hpp src/utils.hpp)
 
 add_executable(${PROJECT_NAME} ${SRC})
