@@ -15,11 +15,7 @@ class registers
 	std::vector<uint16_t> regs;
 
     public:
-	registers() 
-	{
-	    regs.reserve(static_cast<uint8_t>(registers_names::RCNT));
-	    regs = {0};
-	}
+	registers() : regs(static_cast<uint8_t>(registers_names::RCNT), 0) {}
 
 	uint16_t& operator[](uint8_t reg)
 	{

@@ -9,7 +9,7 @@ class memory
 	std::vector<uint16_t> mem;
 
     public:
-	memory(const uintmax_t& size) : mem(size) {}
+	memory(const uintmax_t& size) : mem(size, 0) {}
 
 	uint16_t read(const uintmax_t& source)
 	{

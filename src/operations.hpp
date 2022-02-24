@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include <array>
 
+#include <iostream>
+
 #include "memory.hpp"
 #include "registers.hpp"
 #include "utils.hpp"
@@ -199,25 +201,25 @@ class operations
 	operations(memory& mem, registers& regs) 
 	    : mem{mem}, regs{regs} {}
 
-	auto get_table() -> std::array<decltype(std::bind(&operations::br, *this, std::placeholders::_2)), 16>
+	auto get_table() -> std::array<decltype(std::bind(&operations::br, *this, std::placeholders::_1)), 16>
 	{
 	    return {
-		std::bind(&operations::br, *this, std::placeholders::_2),
-		std::bind(&operations::add, *this, std::placeholders::_2),
-		std::bind(&operations::ld, *this, std::placeholders::_2),
-		std::bind(&operations::st, *this, std::placeholders::_2),
-		std::bind(&operations::jsr, *this, std::placeholders::_2),
-		std::bind(&operations::and_op, *this, std::placeholders::_2),
-		std::bind(&operations::ldr, *this, std::placeholders::_2),
-		std::bind(&operations::str, *this, std::placeholders::_2),
-		std::bind(&operations::rti, *this, std::placeholders::_2),
-		std::bind(&operations::not_op, *this, std::placeholders::_2),
-		std::bind(&operations::ldi, *this, std::placeholders::_2),
-		std::bind(&operations::sti, *this, std::placeholders::_2),
-		std::bind(&operations::jmp, *this, std::placeholders::_2),
-		std::bind(&operations::res, *this, std::placeholders::_2),
-		std::bind(&operations::lea, *this, std::placeholders::_2),
-		std::bind(&operations::trap, *this, std::placeholders::_2)
+		std::bind(&operations::br, *this, std::placeholders::_1),
+		std::bind(&operations::add, *this, std::placeholders::_1),
+		std::bind(&operations::ld, *this, std::placeholders::_1),
+		std::bind(&operations::st, *this, std::placeholders::_1),
+		std::bind(&operations::jsr, *this, std::placeholders::_1),
+		std::bind(&operations::and_op, *this, std::placeholders::_1),
+		std::bind(&operations::ldr, *this, std::placeholders::_1),
+		std::bind(&operations::str, *this, std::placeholders::_1),
+		std::bind(&operations::rti, *this, std::placeholders::_1),
+		std::bind(&operations::not_op, *this, std::placeholders::_1),
+		std::bind(&operations::ldi, *this, std::placeholders::_1),
+		std::bind(&operations::sti, *this, std::placeholders::_1),
+		std::bind(&operations::jmp, *this, std::placeholders::_1),
+		std::bind(&operations::res, *this, std::placeholders::_1),
+		std::bind(&operations::lea, *this, std::placeholders::_1),
+		std::bind(&operations::trap, *this, std::placeholders::_1)
 	    };
 	}
 };
