@@ -78,4 +78,9 @@ namespace utils
     {
 	return instruction & 0b11111111;
     }
+
+    inline uint16_t get_fcnd(uint16_t instruction)
+    {
+	return (instruction >> 9) & 0b111;
+    }
 }

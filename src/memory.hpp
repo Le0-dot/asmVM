@@ -20,4 +20,9 @@ class memory
 	{
 	    mem.at(destination) = value;
 	}
+
+	uint16_t* get_pointer()
+	{
+	    return mem.data();
+	}
 };

@@ -21,9 +21,14 @@ class registers
 	    regs = {0};
 	}
 
-	uint16_t& get(uint8_t reg)
+	uint16_t& operator[](uint8_t reg)
 	{
 	    return regs.at(reg);
+	}
+
+	uint16_t& operator[](registers_names reg_name)
+	{
+	    return regs[static_cast<uint8_t>(reg_name)];
 	}
 
 	uint16_t& get_RPC()
