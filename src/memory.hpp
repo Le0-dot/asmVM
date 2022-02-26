@@ -9,14 +9,14 @@ class memory
 	std::vector<uint16_t> mem;
 
     public:
-	memory(const uintmax_t& size) : mem(size, 0) {}
+	memory(const uint16_t size) : mem(size, 0) {}
 
-	uint16_t read(const uintmax_t& source)
+	uint16_t read(const uint16_t source)
 	{
 	    return mem.at(source);
 	}
 
-	void write(const uintmax_t& destination, uint16_t value)
+	void write(const uint16_t destination, const uint16_t value)
 	{
 	    mem.at(destination) = value;
 	}
