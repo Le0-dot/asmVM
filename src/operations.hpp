@@ -88,7 +88,7 @@ class operations
 
     	void jsr(uint16_t instr)
     	{
-	    regs[registers_names::R15] = regs.get_RPC(); // Remember rpc register into r15 (last one)
+	    regs[registers_names::R8] = regs.get_RPC(); // Remember rpc register into r15 (last one)
 	    regs.get_RPC() = (bit11(instr)		  // and move rpc to new destination		    
 		    ? regs.get_RPC() + off11(instr)
 		    : bs(instr));
